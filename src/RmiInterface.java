@@ -1,3 +1,4 @@
+import java.nio.file.Path;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
@@ -23,7 +24,7 @@ public interface RmiInterface extends Remote {
      * @return
      * @throws RemoteException when the method receives an error from the server
      */
-    String pwd() throws RemoteException;
+    Path pwd() throws RemoteException;
 
     /**
      * Checks if the entered filename is present at the server
@@ -32,4 +33,7 @@ public interface RmiInterface extends Remote {
      * @throws RemoteException when the method receives an Exception instead of result
      */
     String file_check(String file_name) throws RemoteException;
+
+
+
 }

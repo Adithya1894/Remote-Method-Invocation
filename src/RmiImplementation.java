@@ -1,3 +1,5 @@
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
@@ -21,8 +23,14 @@ public class RmiImplementation extends UnicastRemoteObject implements RmiInterfa
     }
 
     @Override
-    public String pwd() throws RemoteException {
-        return null;
+    public Path pwd() throws RemoteException {
+
+
+
+        //Path path = FileSystems.getDefault().getPath(".");
+
+        Path pwd = FileSystems.getDefault().getPath(".");
+        return pwd;
     }
 
     @Override
