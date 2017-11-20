@@ -68,9 +68,11 @@ public class RmiImplementation extends UnicastRemoteObject implements RmiInterfa
 
         String pwd;
         System.out.println("Path Method Called");
-        //Path path = FileSystems.getDefault().getPath(".");
 
+        //using the Path class to get the present working directory
         Path path_pwd = Paths.get("");
+
+        //Changing the path to a string
         pwd = path_pwd.toAbsolutePath().toString();
         System.out.println("Directory: " +pwd);
         return pwd;
@@ -99,5 +101,36 @@ public class RmiImplementation extends UnicastRemoteObject implements RmiInterfa
 
 
 
+    }
+
+    /**
+     *
+     * @param matrix1
+     * @param matrix2
+     * @param dimension
+     * @return
+     * @throws RemoteException
+     */
+    @Override
+    public int[][] matrix_multiplication(int[][] matrix1, int[][] matrix2, int dimension) throws RemoteException {
+
+
+        int [][] result = new int[1000][1000];
+
+
+        System.out.println("Matrix Multiplication called");
+        int i, j, k;
+        for (i = 0; i < dimension; i++)
+        {
+            for (j = 0; j < dimension; j++)
+            {
+                result[i][j] = 0;
+                for (k = 0; k < dimension; k++)
+                    result[i][j] += matrix1[i][k]*matrix2[k][j];
+            }
+        }
+
+        //returning the two dimensional array
+        return result;
     }
 }
