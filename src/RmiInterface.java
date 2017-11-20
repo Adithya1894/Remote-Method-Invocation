@@ -1,4 +1,3 @@
-import java.nio.file.Path;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
@@ -33,6 +32,17 @@ public interface RmiInterface extends Remote {
      * @throws RemoteException when the method receives an Exception instead of result
      */
     boolean file_check(String file_name) throws RemoteException;
+
+    /**
+     * Method for Matrix Multiplication, takes the input values of two matrices
+     * Returns the Multiplied Matrix value
+     * @param matrix1
+     * @param matrix2
+     * @param dimension
+     * @return
+     * @throws RemoteException
+     */
+    int[][] matrix_multiplication(int[][] matrix1, int[][] matrix2, int dimension) throws RemoteException;
 
 
 
