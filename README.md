@@ -10,6 +10,8 @@ use the command rmiregistry - to start the rmiregistry
 
 # Running Client and Server
 
-Now open another Terminal  
-use the command java Server(This will start the Server) 
+Now open another Terminal window  
+use the command java Server(This will start the Server)
+
+To Run the Client, open another Terminal window  
 use the command java Client(This will start the Client)  
