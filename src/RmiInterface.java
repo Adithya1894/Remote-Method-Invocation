@@ -17,7 +17,7 @@ public interface RmiInterface extends Remote {
      * @return the sorted list
      * @throws RemoteException
      */
-    int[] sort_list(int[] list_input) throws RemoteException;
+    int[] sort_list(int[] list_input,int size) throws RemoteException;
 
     /**
      * Returns the current working directory of the server
