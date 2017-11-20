@@ -121,8 +121,64 @@ public class Client {
      */
     public void client_matrix_multiplication(){
 
+        int[][] matrix1 = new int[1000][1000];
+        int[][] matrix2 = new int[1000][1000];
+        int[][] result = new int[1000][1000];
+        System.out.println("Please enter the dimension of the matrix");
+
+        Scanner sc = new Scanner(System.in);
+
+        int dimension = sc.nextInt();
+
+
+        //getting the first matrix values
+        for(int i = 0; i < dimension; i++){
+            for(int j = 0; j < dimension; j++)
+            {
+                System.out.println("Please enter the " +matrix1[i][j]+ " element: \n");
+
+                matrix1[i][j] = sc.nextInt();
+            }
+        }
+
+        System.out.println("Please enter the elements for matrix 2");
+        //getting the second matrix values
+        for(int i = 0; i < dimension; i++){
+            for(int j = 0; j < dimension; j++)
+            {
+                System.out.println("Please enter the " +matrix2[i][j]+ " element: \n");
+
+                matrix2[i][j] = sc.nextInt();
+            }
+        }
+
+        //calling the serverSide function of Matrix_Multiplication
+        //try catch to catch any RemoteExceptions
+        try {
+           result = obj.matrix_multiplication(matrix1,matrix2,dimension);
+           System.out.println("Multiplied Result:\n");
+            for(int i = 0; i < dimension; i++){
+                for(int j = 0; j < dimension; j++)
+                {
+                    //System.out.println("Please enter the " +matrix2[i][j]+ "element: \n");
+
+                    System.out.print(result[i][j]+"\t");
+                }
+                System.out.println();
+            }
+
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
+    /**
+     * Main method
+     * @param args
+     * @throws RemoteException
+     * @throws MalformedURLException
+     * @throws NotBoundException
+     */
     public static void main(String args[]) throws RemoteException, MalformedURLException, NotBoundException {
 
 
