@@ -24,7 +24,7 @@ public interface RmiInterface extends Remote {
      * @return
      * @throws RemoteException when the method receives an error from the server
      */
-    Path pwd() throws RemoteException;
+    String pwd() throws RemoteException;
 
     /**
      * Checks if the entered filename is present at the server
@@ -32,7 +32,9 @@ public interface RmiInterface extends Remote {
      * @return true if the searched file is present, if not False
      * @throws RemoteException when the method receives an Exception instead of result
      */
-    String file_check(String file_name) throws RemoteException;
+    boolean file_check(String file_name) throws RemoteException;
+
+
 
 
 
