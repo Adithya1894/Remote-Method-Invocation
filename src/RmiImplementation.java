@@ -1,3 +1,4 @@
+import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.rmi.RemoteException;
@@ -44,9 +45,6 @@ public class RmiImplementation extends UnicastRemoteObject implements RmiInterfa
                 int key = list_input[i];
                 int j = i-1;
 
-            /* Move elements of arr[0..i-1], that are
-               greater than key, to one position ahead
-               of their current position */
                 while (j>=0 && list_input[j] > key)
                 {
                     list_input[j+1] = list_input[j];
@@ -86,6 +84,20 @@ public class RmiImplementation extends UnicastRemoteObject implements RmiInterfa
      */
     @Override
     public boolean file_check(String file_name) throws RemoteException {
+
+
+        File input_file = new File(file_name);
+
+        System.out.println("File_Check called");
+
+        if(input_file.exists()) {
+
+            return true;
+        }
         return false;
+
+
+
+
     }
 }

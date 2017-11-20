@@ -92,6 +92,27 @@ public class Client {
      */
     public void client_file_check(){
 
+        String file_name;
+
+
+
+        System.out.println("Please enter the filename: \n");
+
+        Scanner sc = new Scanner(System.in);
+
+        file_name = sc.nextLine();
+
+        try {
+            if(obj.file_check(file_name))
+            {
+                System.out.println(file_name+ " is present at the server");
+            }
+            else
+            System.out.println(file_name +" is not present at the server");
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+
 
     }
 
@@ -132,6 +153,8 @@ public class Client {
                  */
                 i = sc.nextInt();
 
+
+                //Will be changing this switch case to Strategy Design Pattern.
                 switch (i)
                 {
                     case 1: client_obj.client_echo();
