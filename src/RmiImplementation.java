@@ -10,6 +10,8 @@ public class RmiImplementation extends UnicastRemoteObject implements RmiInterfa
     }
     @Override
     public String echo(String input) throws RemoteException {
+        System.out.println("Echo Method called");
+        System.out.println("Response sent to the client is: "+input);
         return input;
     }
 
