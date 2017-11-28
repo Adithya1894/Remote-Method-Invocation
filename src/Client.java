@@ -216,8 +216,13 @@ public class Client {
                     case 1: client_obj.client_echo();
                     break;
 
-                    case 2: client_obj.client_sort();
-                    break;
+                    case 2: {
+                        Long var = System.nanoTime();
+                        client_obj.client_sort();
+                        Long var1 = System.nanoTime();
+                         System.out.println("Round trip time in nanoSeconds is: " +(var1-var));
+                        break;
+                    }
 
                     case 3: client_obj.client_pwd();
                     break;
