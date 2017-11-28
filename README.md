@@ -15,3 +15,5 @@ use the command java Server(This will start the Server)
 
 To Run the Client, open another Terminal window  
 use the command java Client(This will start the Client)  
+
+After compiling the client and server just follow the onscreen instructions  
