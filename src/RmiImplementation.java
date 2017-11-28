@@ -41,8 +41,10 @@ public class RmiImplementation extends UnicastRemoteObject implements RmiInterfa
         for(int i = 0; i < size; i++)
         {
 
-
-                int key = list_input[i];
+            /**
+             * Insertion sort logic
+             */
+            int key = list_input[i];
                 int j = i-1;
 
                 while (j>=0 && list_input[j] > key)
