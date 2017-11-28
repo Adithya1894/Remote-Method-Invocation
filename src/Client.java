@@ -213,8 +213,13 @@ public class Client {
                 //Will be changing this switch case to Strategy Design Pattern.
                 switch (i)
                 {
-                    case 1: client_obj.client_echo();
-                    break;
+                    case 1: {
+                        Long var = System.nanoTime();
+                        client_obj.client_echo();
+                        Long var1 = System.nanoTime();
+                        System.out.println("Round trip time in nanoSeconds is: " +(var1-var));
+                        break;
+                    }
 
                     case 2: {
                         Long var = System.nanoTime();
@@ -224,14 +229,30 @@ public class Client {
                         break;
                     }
 
-                    case 3: client_obj.client_pwd();
-                    break;
+                    case 3: {
+                        Long var = System.nanoTime();
+                        client_obj.client_pwd();
+                        Long var1 = System.nanoTime();
+                        System.out.println("Round trip time in nanoSeconds is: " +(var1-var));
+                        break;
+                    }
 
-                    case 4: client_obj.client_file_check();
-                    break;
+                    case 4: {
+                        Long var = System.nanoTime();
+                        client_obj.client_file_check();
+                        Long var1 = System.nanoTime();
+                        System.out.println("Round trip time in nanoSeconds is: " +(var1-var));
+                        break;
+                    }
 
-                    case 5: client_obj.client_matrix_multiplication();
-                    break;
+                    case 5: {
+                        Long var = System.nanoTime();
+                        client_obj.client_matrix_multiplication();
+                        Long var1 = System.nanoTime();
+                        System.out.println("Round trip time in nanoSeconds is: " +(var1-var));
+                        break;
+                    }
+
 
                     default:System.out.println("Please choose a valid option");
 
