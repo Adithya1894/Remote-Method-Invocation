@@ -1,6 +1,8 @@
 import java.io.File;
+import java.net.MalformedURLException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
@@ -10,8 +12,12 @@ public class RmiImplementation extends UnicastRemoteObject implements RmiInterfa
      * Constructor for the RmiImplementaion class
      * @throws RemoteException
      */
-    public RmiImplementation() throws RemoteException{
+    private float value = 10000;
+    private int id;
+    private String name;
+    public RmiImplementation(String s) throws RemoteException{
         super();
+        name = s;
 
     }
 
@@ -135,4 +141,8 @@ public class RmiImplementation extends UnicastRemoteObject implements RmiInterfa
         //returning the two dimensional array
         return result;
     }
+
+
+
+
 }
