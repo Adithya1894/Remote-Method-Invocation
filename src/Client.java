@@ -2,10 +2,15 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.util.Scanner;
+
+import static java.lang.System.setSecurityManager;
 
 public class Client {
    static RmiInterface obj;
+
 
     /**
      * Echos the input taken from the user.
@@ -183,7 +188,10 @@ public class Client {
 
 
         try {
-             obj = (RmiInterface) Naming.lookup("server");
+            String server = "//10.234.136.55/server";
+
+
+            obj = (RmiInterface)Naming.lookup(server);
 
              Client client_obj = new Client();
 
@@ -262,7 +270,7 @@ public class Client {
         }
         catch (Exception e)
         {
-            System.out.println("Exception occured");
+            e.printStackTrace();
         }
 
 
