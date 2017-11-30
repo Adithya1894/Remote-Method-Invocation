@@ -1,21 +1,36 @@
 # Remote-Method-Invocation
 A Distributed Client-Server Application using Remote Method Invocation
 
+
+
 # Running the Application
-open Terminal  
-go to the source directory  
-compile all the java files using javac *.java  
-use the command rmic RmiImplementation(To create the stub and skeleton)  
-use the command rmiregistry - to start the rmiregistry  
+
+IMPORTANT
+#########################################
+open a pegasus Terminal Window - 10.234.136.57(only the Rmiregistry on this server)
+########################################
+go to the src directory use the command cd src  
+compile all the java files and Run the RMIRegistry using the Command sh Makefile_Registry.sh 
+once this compiles and the RmiRegistry starts succesfully, the cursor just stays there. 
+you can carryon with other steps in a new terminal window of the same server. 
+
 
 # Running Client and Server
 
-Now open another Terminal window 
-Go to the Src Directory Again   
-use the command java Server(This will start the Server)
+IMPORTANT
+############################################################
+Now open another window of the  same Pegasus Terminal 
+RMiRegistry and server files should be run on same Server.
+10.234.136.57
+The program will not run on other systems
+###########################################################
 
-To Run the Client, open another Terminal window  
-Go to the Src Directory Again  
-use the command java Client(This will start the Client)  
+
+Go to the src Directory Again  use the command cd src 
+use the command sh Makefile_Server.sh to start the server
+
+To Run the Client, open another any other pegasus Terminal window  
+Go to the src Directory Again use the command cd src  
+use the command sh Makefile_Client.sh (This will start the Client)  
 
 After compiling the client and server just follow the onscreen instructions  
