@@ -19,7 +19,7 @@ public class Client {
 
         String val;
         Scanner sc = new Scanner(System.in);
-
+        System.out.println("Enter the input: \n");
         val = sc.nextLine();
 
         String result;
@@ -207,7 +207,7 @@ public class Client {
 
 
         try {
-            String server = "//10.234.136.56/server";
+            String server = "//10.234.136.57/server";
 
 
             obj = (RmiInterface)Naming.lookup(server);
