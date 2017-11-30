@@ -5,7 +5,7 @@ A Distributed Client-Server Application using Remote Method Invocation
 
 # Running the Application
 
-IMPORTANT
+IMPORTANT  
 #########################################  
 open a pegasus Terminal Window - 10.234.136.57(only the Rmiregistry on this server)  
 ########################################  
