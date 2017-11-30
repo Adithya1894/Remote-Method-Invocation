@@ -24,8 +24,11 @@ public class Client {
 
         String result;
         try {
+            Long var = System.nanoTime();
             result = obj.echo(val);
-            System.out.println("result from the server is: " + result);
+            Long var1 = System.nanoTime();
+            System.out.println("Round trip time in nanoSeconds is: " +(var1-var));
+            System.out.println("\n result from the server is: " + result);
         } catch (RemoteException e) {
             System.out.println("Exception occured while Echo");
         }
@@ -58,8 +61,12 @@ public class Client {
         }
 
         try {
+            Long var = System.nanoTime();
             sorted_arr = obj.sort_list(arr, size);
-            System.out.println("Sorted array is: ");
+            Long var1 = System.nanoTime();
+            System.out.println("Round trip time in nanoSeconds is: " +(var1-var));
+
+            System.out.println("\n Sorted array is: ");
             for(int i =0; i < size; i++){
                 System.out.println(sorted_arr[i]);
             }
@@ -77,8 +84,10 @@ public class Client {
 
         String pwd;
         try{
-
+            Long var = System.nanoTime();
             pwd = obj.pwd();
+            Long var1 = System.nanoTime();
+            System.out.println("Round trip time in nanoSeconds is: " +(var1-var));
 
             System.out.println("\n Present working directory is: \n");
 
@@ -108,12 +117,17 @@ public class Client {
         file_name = sc.nextLine();
 
         try {
+            Long var = System.nanoTime();
             if(obj.file_check(file_name))
             {
                 System.out.println(file_name+ " is present at the server");
             }
             else
             System.out.println(file_name +" is not present at the server");
+
+            Long var1 = System.nanoTime();
+            System.out.println("Round trip time in nanoSeconds is: " +(var1-var));
+
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -160,8 +174,13 @@ public class Client {
         //calling the serverSide function of Matrix_Multiplication
         //try catch to catch any RemoteExceptions
         try {
+            Long var = System.nanoTime();
            result = obj.matrix_multiplication(matrix1,matrix2,dimension);
-           System.out.println("Multiplied Result:\n");
+
+            Long var1 = System.nanoTime();
+            System.out.println("Round trip time in nanoSeconds is: " +(var1-var));
+
+            System.out.println("Multiplied Result:\n");
             for(int i = 0; i < dimension; i++){
                 for(int j = 0; j < dimension; j++)
                 {
@@ -188,7 +207,7 @@ public class Client {
 
 
         try {
-            String server = "//10.234.136.55/server";
+            String server = "//10.234.136.56/server";
 
 
             obj = (RmiInterface)Naming.lookup(server);
@@ -222,42 +241,34 @@ public class Client {
                 switch (i)
                 {
                     case 1: {
-                        Long var = System.nanoTime();
+
                         client_obj.client_echo();
-                        Long var1 = System.nanoTime();
-                        System.out.println("Round trip time in nanoSeconds is: " +(var1-var));
+
                         break;
                     }
 
                     case 2: {
-                        Long var = System.nanoTime();
+
                         client_obj.client_sort();
-                        Long var1 = System.nanoTime();
-                         System.out.println("Round trip time in nanoSeconds is: " +(var1-var));
+
                         break;
                     }
 
                     case 3: {
-                        Long var = System.nanoTime();
+
                         client_obj.client_pwd();
-                        Long var1 = System.nanoTime();
-                        System.out.println("Round trip time in nanoSeconds is: " +(var1-var));
                         break;
                     }
 
                     case 4: {
-                        Long var = System.nanoTime();
+
                         client_obj.client_file_check();
-                        Long var1 = System.nanoTime();
-                        System.out.println("Round trip time in nanoSeconds is: " +(var1-var));
                         break;
                     }
 
                     case 5: {
-                        Long var = System.nanoTime();
+
                         client_obj.client_matrix_multiplication();
-                        Long var1 = System.nanoTime();
-                        System.out.println("Round trip time in nanoSeconds is: " +(var1-var));
                         break;
                     }
 
