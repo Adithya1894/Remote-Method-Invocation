@@ -12,10 +12,10 @@ public class RmiImplementation extends UnicastRemoteObject implements RmiInterfa
      */
     private float value = 10000;
     private int id;
-    private String name;
-    public RmiImplementation(String s) throws RemoteException{
+    //private String name;
+    public RmiImplementation() throws RemoteException{
         super();
-        name = s;
+        //name = s;
 
     }
 
@@ -27,7 +27,7 @@ public class RmiImplementation extends UnicastRemoteObject implements RmiInterfa
      * @throws RemoteException
      */
     @Override
-    public String echo(String input) throws RemoteException {
+    public String echo(Session session, String input) throws RemoteException {
         System.out.println("Echo Method called");
         System.out.println("Response sent to the client is: "+input);
         return input;
@@ -70,7 +70,7 @@ public class RmiImplementation extends UnicastRemoteObject implements RmiInterfa
      * @throws RemoteException
      */
     @Override
-    public String pwd() throws RemoteException {
+    public String pwd(Session userRole) throws RemoteException {
 
         String pwd;
         System.out.println("Path Method Called");
@@ -139,8 +139,11 @@ public class RmiImplementation extends UnicastRemoteObject implements RmiInterfa
         //returning the two dimensional array
         return result;
     }
-
-
+    @Override
+    public Session processLogin(String userType) throws RemoteException{
+		Session session = new Session(userType);
+		return session;
+	}
 
 
 }
